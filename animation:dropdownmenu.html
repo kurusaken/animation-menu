@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	#mycontainer {
+		width: 800px;
+		height: 400px;
+		position: relative;
+		
+	}
+	#myanimation {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		background-color: white;
+	}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+
+.show {display:block;}
+
+body {
+	background-image: url(videogame.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+</style>
+	<title></title>
+</head>
+<body>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">mario</a>
+    <a href="#">toad</a>
+    <a href="#">wario</a>
+  </div>
+</div>
+<div id="mycontainer">
+	<div id="myanimation"><img src="luigi.jpg"></div>
+
+</div>
+<p>
+	<button onclick="Move()">click me</button>
+	</p>
+<script type="text/javascript">
+	function Move() {
+		var ani = document.getElementById("myanimation");
+		var pos = 0;
+		var id = setInterval(frame, 5);
+		function frame() {
+			if (pos == 1200) {
+				clearInterval(id);
+			}   else{
+				pos++;
+				ani.style.left = pos + 'px';
+				
+			}
+		}
+	}
+
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
+
+		
